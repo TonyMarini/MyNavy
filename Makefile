@@ -5,18 +5,18 @@
 ## Makefile
 ##
 
-SRC		=		main.c								\
-				error_verif/input_processing.c		\
+SRC		=		main.c						\
+				error_verif/input_processing.c			\
 				error_verif/display_help.c			\
 				gameplay/start_player.c				\
-				gameplay/load_map.c					\
-				navy.c								\
-				error_verif/action_error_two.c		\
-				error_verif/action_error_one.c		\
+				gameplay/load_map.c				\
+				navy.c						\
+				error_verif/action_error_two.c			\
+				error_verif/action_error_one.c			\
 				gameplay/load_ships.c				\
-				error_verif/verification_file.c		\
-				gameplay/connection_player.c		\
-				gameplay/get_position_ship.c		\
+				error_verif/verification_file.c			\
+				gameplay/connection_player.c			\
+				gameplay/get_position_ship.c			\
 				gameplay/enemy_map.c				\
 				error_verif/signal_ctrl_d.c			\
 				error_verif/check_lose.c			\
@@ -32,9 +32,9 @@ SRC		=		main.c								\
 
 OBJ		=		$(SRC:.c=.o)
 
-NAME	=		navy
+NAME		=		navy
 
-CFLAGS	+=		-I./include/ -I./lib/include/
+CFLAGS		+=		-I./include/ -I./lib/include/
 
 CCO		=		gcc -o
 
@@ -42,9 +42,9 @@ RM		=		rm -f
 
 LIB		=		-L./lib -lmy
 
-all:			$(NAME)
+all:				$(NAME)
 
-$(NAME):		$(OBJ)
+$(NAME):			$(OBJ)
 				make -C ./lib
 				$(CCO) $(NAME) $(OBJ) $(LIB) -g3
 				make clean
@@ -53,10 +53,10 @@ clean:
 				$(RM) $(OBJ)
 				make clean -C ./lib
 
-fclean:			clean
+fclean:				clean
 				$(RM) $(NAME)
 				make fclean -C ./lib
 
 re:				fclean all
 
-.PHONY:			all clean fclean re
+.PHONY:				all clean fclean re
